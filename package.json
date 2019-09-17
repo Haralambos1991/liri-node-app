@@ -1,54 +1,24 @@
-<<<<<<< HEAD
-"name": "liri-node-app",
+{
+  "name": "liri-node-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "LIRI is a Language Interpretation and Recognition Interface. Use LIRI to get your latest tweets, find out about a song, or a movie, or just choose a random action from your own random file.",
+  "main": "liri.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node liri.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thomasfitzer/liri-node-app.git"
+    "url": "git+https://github.com/Haralambos1991/liri-node-app.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thomasfitzer/liri-node-app/issues"
+    "url": "https://github.com/Haralambos1991/liri-node-app/issues"
   },
-  "homepage": "https://github.com/thomasfitzer/liri-node-app#readme",
+  "homepage": "https://github.com/Haralambos1991/liri-node-app#readme",
   "dependencies": {
-    "bandsintown-events": "^1.0.4",
-    "dotenv": "^6.1.0",
-    "node-spotify-api": "^1.0.7",
-    "omdb": "^0.8.0",
-    "spotify-web-api-node": "^4.0.0"
+    "modules": "^0.4.0",
+    "node": "^12.10.0"
   }
-=======
-"name": "liri-node-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thomasfitzer/liri-node-app.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/thomasfitzer/liri-node-app/issues"
-  },
-  "homepage": "https://github.com/thomasfitzer/liri-node-app#readme",
-  "dependencies": {
-    "bandsintown-events": "^1.0.4",
-    "dotenv": "^6.1.0",
-    "node-spotify-api": "^1.0.7",
-    "omdb": "^0.8.0",
-    "spotify-web-api-node": "^4.0.0"
-  }
->>>>>>> new message
 }

@@ -109,7 +109,7 @@ function doIt() {
     });
 }
 
-=======
+
 var keys = require("./keys");
 require("dotenv").config();
 console.log(keys);
@@ -216,7 +216,21 @@ function doIt() {
     //   cannot get the values of dataArr to run in commandline
       var action = process.argv[2] = dataArr[0];
       var value = process.argv[3] = dataArr[1];
-
+    
     });
+  }
+   }
+    };
+});
 }
             }
+        }
+    });
+}
+    
+        
+
+        
+    
+
+                     
