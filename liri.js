@@ -6,35 +6,37 @@ require("dotenv").config();
 var keys = require("./keys.js");
 var fs = require("fs");
 var Spotify = require('node -spotify-api');
-var spotify = new Spotify(keys.spotify)
-var movieName = process.argv[3];
-var liriReturn = process.argv[2];
+var spotify = new Spotify(keys.spotify);
+var movieName = process.argv[3]
+var liriReturn = process.argv[2]
 var twitter = require('twitter');
-var client = new twitter(keys.twitter);
+var axios = require("axios");
 
-//switches for various commands
-switch(liriReturn) {
-   case "my-tweets":
-       myTweets();
+
+
+//switches for various commands 
+switch(LiriReturn) {
+   case "spotify-this-song":
+       getSpotify(userSearch);
        break;
 
-case "spotify-this-song":
-     spotifyThisSong();
+case "concert-this":
+     getBandsInTown();
      break;
 
 case "movie-this":
-    movieThis();
+    getOMDB(userSearch);
     break;
 
 case "do what it says"  :
-    dowhatitSays();
+    getRandom();
     break;
 
 
 // instructions for first-time user lurking around on the command line//
 default: console.log("\n" + "type any command after 'node liri.js': " + "\n" +
-   "my-tweets" + "\n" +
    "spotify-this-song 'any song title' " + "\n" +
+   "concert-this 'any-concert' "+ "\n" +
    "movie-this 'any-movie-title' " + "\n" +
    "do-what-it-says" + "\n" +
    "Use quotes for multiword titles!");

@@ -1,0 +1,119 @@
+User Command: node liri.js movie-this baby driver
+
+LIRI Response:
+
+------------------------
+Movie Information:
+------------------------
+
+Movie Title: Baby Driver
+Year Released: 28 Jun 2017
+IMBD Rating: 7.8
+Rotten Tomatoes Rating: undefined
+origin Country: UK, USA
+Language: English, American Sign Language
+Plot: Baby is a young and partially hearing impaired getaway driver who can make any wild move while in motion with the right track playing. It's a critical talent he needs to survive his indentured servitude to the crime boss, Doc, who values his role in his meticulously planned robberies. However, just when Baby thinks he is finally free and clear to have his own life with his new girlfriend, Deborah, Doc coerces him back for another job. Now saddled with a crew of thugs too violently unstable to keep to Doc's plans, Baby finds himself and everything he cares for in terrible danger. To survive and escape the coming maelstrom, it will take all of Baby's skill, wits and daring, but even on the best track, can he make it when life is forcing him to face the music?
+Actors: Ansel Elgort, Jon Bernthal, Jon Hamm, Eiza González
+
+
+User Command: node liri.js do-what-it-says
+
+User Command: node liri.js spotify-this-song"I Want it That Way"
+
+ERROR: Retrieving Spotify track -- StatusCodeError: 400 - {"error":"invalid_client","error_description":"Invalid client"}User Command: node liri.js spotify-this-song
+
+ERROR: Retrieving Spotify track -- StatusCodeError: 400 - {"error":"invalid_client","error_description":"Invalid client"}User Command: node liri.js spotify-this-songthunder
+
+ERROR: Retrieving Spotify track -- StatusCodeError: 400 - {"error":"invalid_client","error_description":"Invalid client"}User Command: node liri.js spotify-this-songThunder
+
+ERROR: Retrieving Spotify track -- StatusCodeError: 400 - {"error":"invalid_client","error_description":"Invalid client"}User Command: node liri.js my-tweets
+
+ERROR: retrieving user tweets -- [object Object]User Command: node liri.js my-tweets
+
+ERROR: retrieving user tweets -- [object Object]User Command: node liri.js my-tweets
+
+ERROR: retrieving user tweets -- [object Object]User Command: node liri.js my-tweets
+
+ERROR: retrieving user tweets -- [object Object]User Command: node liri.js movie-this Notebook
+
+
+
+LIRI Response:
+
+------------------------
+Movie Information:
+------------------------
+
+Movie Title: Notebook
+Year Released: 2004
+IMBD Rating: 7.8
+Rotten Tomatoes Rating: undefined
+Origin Country: UK, USA
+Language: English, American Sign Language
+Plot: In 1940s South Carolina, mill worker Noah Calhoun (Ryan Gosling) and rich girl Allie (Rachel McAdams) are desperately in love. But her parents don't approve. When Noah goes off to serve in World War II, it seems to mark the end of their love affair. In the interim, Allie becomes involved with another man (James Marsden). But when Noah returns to their small town years later, on the cusp of Allie's marriage, it soon becomes clear that their romance is anything but over.
+Actors: Rachels Mc Adams, Ryan Gosling
+
+
+LIRI Response:
+
+------------------------
+Movie Information:
+------------------------
+
+Movie Title: Titanic
+Year Released: 1997
+IMBD Rating: 7.8
+Rotten Tomatoes Rating: 38%
+Country Produced: UK, USA
+Language: English, American Sign Language
+Plot: A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.
+Actors: Leonardo Di Caprio, Kane winslet, Billy Zane
+
+
+Artist: Backstreet Boys
+Track name: I Want It That Way
+Song preview: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=d708666f12fa414ba93b915ac899d183
+Album: The Hits--Chapter One
+User Input Error: liri.js my-tweets hdg_wd is an invalid command or argument.
+
+Artist: Backstreet Boys
+Track name: I Want It That Way
+Song preview: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=d708666f12fa414ba93b915ac899d183
+Album: The Hits--Chapter One
+User Input Error: liri.js my-tweets hdg_wd is an invalid command or argument.
+User command: spotify-this-song. User arguments:  let it be
+
+
+Artist: Ace of Base
+Track name: The Sign
+Song preview: https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=d708666f12fa414ba93b915ac899d183
+Album: The Sign (US Album) [Remastered]
+User Input Error: liri.js move-this is an invalid command or argument. 
+
+
+
+Tue May 22 01:04:57 2018 - I prefer the name 'El Pueblo de Nuestra Senora la Reina de los Angeles de la Porciuncula' to 'Los Angeles'.
+Mon May 21 20:15:19 2018 - Mental note: Keep tweeting until you receive a grade for this homework assignment as the Twitter API can only look back 7 days.
+Mon May 21 20:14:41 2018 - Why is playing console games so addicting?
+Mon May 21 17:04:56 2018 - GIMP is the worst image manipulation program ever.
+Fri May 18 04:27:50 2018 - I wish Twitter would actually read the series of tweets for context before locking this account.
+Fri May 18 00:47:11 2018 - I love coding!
+Fri May 18 00:41:56 2018 - 1986 is as far away as 2050.
+Fri May 18 00:37:41 2018 - ATM fees are like buying your own money.
+Fri May 18 00:37:20 2018 - When you think about it, beef jerky is just a cow raisin.
+Fri May 18 00:30:36 2018 - The best way to get back on your feet is to miss a couple of car payments.
+Fri May 18 00:26:29 2018 - No one has ever been in an empty room.
+Fri May 18 00:18:39 2018 - So hungry.
+Fri May 18 00:17:37 2018 - Watching MLS on TV feels slower than watching MLB on TV.
+Fri May 18 00:09:05 2018 - Coming up with 20 test tweets is difficult.
+Fri May 18 00:08:03 2018 - At a Drive-Thru Window #WhenItsNotOKToSayILoveYou
+Fri May 18 00:02:13 2018 - #IDontTrustPeopleThat say "all y'all's".
+Thu May 17 23:55:42 2018 - I could really go for some fried chicken right now.
+Thu May 17 23:55:18 2018 - This homework is taking forever to setup.
+Thu May 17 23:50:00 2018 - I don't want to sign up for the Twitter Development Platform with my phone number!
+Thu May 17 23:48:04 2018 - Waldo’s parents are probably worried sick.
+Error Handling: No argument input by user. Results for "The Sign" by Ace of Base automatically shown.
+
+
+
+
