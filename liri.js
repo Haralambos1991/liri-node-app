@@ -1,27 +1,29 @@
-                    
 require("dotenv").config();
-
 //project vars
+
+
 
 var keys = require("./keys.js");
 var fs = require("fs");
-var Spotify = require('node -spotify-api');
-var spotify = new Spotify(keys.spotify);
+var spotify = require('node-spotify-api');
+var spotify =  new spotify(keys.spotify)
 var movieName = process.argv[3]
 var liriReturn = process.argv[2]
 var twitter = require('twitter');
+var client = new twitter(keys.client)
 var axios = require("axios");
 
 
 
+
 //switches for various commands 
-switch(LiriReturn) {
+switch(liriReturn) {
    case "spotify-this-song":
        getSpotify(userSearch);
        break;
 
 case "concert-this":
-     getBandsInTown();
+     concertThis();
      break;
 
 case "movie-this":
@@ -45,7 +47,7 @@ default: console.log("\n" + "type any command after 'node liri.js': " + "\n" +
 
 //Command 1 my-tweets
 //errors who are from twitter are not defined or twitter is not a constructor//
-function myTweets() {
+/*function myTweets() {
     var params = { screen_name: 'WelcomeToParadise'};
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
         if (!error) {
@@ -59,8 +61,9 @@ function myTweets() {
         }
     });
 }
+*/
 
-//command 3 spotify this song
+//command 1 spotify this song
 // i need artist, song name, preview, album
 function spotifyThisSong(trackName) {
     var trackName = process.argv[3];
@@ -94,6 +97,20 @@ function spotifyThisSong(trackName) {
         }
     });
 };
+
+// command 2 concert this
+//choose a concert of your choice by typing on the command line node liri.js concert this
+
+
+function concertThis() {
+    var bandSearch = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp";
+
+    request (bandSearch, function(error, response, body) {
+        console.log(JSON.parse(body));
+    };
+});
+
+
 //command 3 movie this
 // run a movie to the OMDB API with the movie specified
 function movieThis() {
