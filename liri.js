@@ -138,12 +138,16 @@ function movieThis() {
 //  console.log("queryUrl", queryUrl)
 axios.get(queryUrl).then( (response ) => {
 
-    const { Title, Rated, Year, Released, imdbRating  } = response.data
+    const { Title, Rated, Year, Released, imdbRating, Country, Language, Plot, Actors  } = response.data
     console.log("Title", Title)
     console.log("Rated", Rated)
     console.log("Year", Year)
     console.log("Released", Released )
     console.log("imdbRating", imdbRating)
+    console.log("Country", Country)
+    console.log("Language", Language)
+    console.log("Plot", Plot)
+    console.log("Actors", Actors)
     // console.log(response))
 })
     //  {
