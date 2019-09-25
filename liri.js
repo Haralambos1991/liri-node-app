@@ -6,6 +6,7 @@ var fs = require('fs');
 var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 var movieName = process.argv[3];
+var bandSearch = process.argv[3]
 var liriReturn = process.argv[2];
 var twitter = require('twitter');
 var client = new twitter(keys.client);
@@ -116,15 +117,21 @@ function spotifyThisSong(trackName) {
 //choose a concert of your choice by typing on the command line node liri.js concert this
 
 function concertThis() {
-    var bandSearch =
-        'https://rest.bandsintown.com/artists/' +
-        BandName +
-        '/events?app_id=codingbootcamp';
+    console.log("concert-this")
+    var  queryUrl = "https://rest.bandsintown.com/artists/"+
+    bandSearch +
+    "/events?app_id=codecademy";
 
-    request(bandSearch, function(error, response, body) {
-        console.log(JSON.parse(body));
-    });
-}
+axios.get(queryUrl).then(  (response)  => {
+
+const { Name , City, Date, Country  } = response.data
+console.log("Name", Name)
+console.log("City", City)
+console.log("Date", Date)
+console.log("Country", Country)
+
+
+
 
 //command 3 movie this
 // run a movie to the OMDB API with the movie specified
@@ -150,42 +157,7 @@ axios.get(queryUrl).then( (response ) => {
     console.log("Actors", Actors)
     // console.log(response))
 })
-    //  {
-    //     console.log("axios.get",{error, response, body})
-    //     // If the request is successful
-    //     if (!error && response.statusCode === 200) {
-    //         // pull requested data in readable format
-    //         var myMovieData = JSON.parse(body);
-    //         var queryUrlResults =
-    //             'Title: ' +
-    //             myMovieData.Title +
-    //             '\n' +
-    //             'Year: ' +
-    //             myMovieData.Year +
-    //             '\n' +
-    //             'IMDB Rating: ' +
-    //             myMovieData.Ratings[0].Value +
-    //             '\n' +
-    //             'Rotten Tomatoes Rating: ' +
-        //         myMovieData.Ratings[1].Value +
-        //         '\n' +
-        //         'Origin Country: ' +
-        //         myMovieData.Country +
-        //         '\n' +
-        //         'Language: ' +
-        //         myMovieData.Language +
-        //         '\n' +
-        //         'Plot: ' +
-        //         myMovieData.Plot +
-        //         '\n' +
-        //         'Actors' +
-        //         myMovieData.Actors +
-        //         '\n';
-
-        //     console.log(queryUrlResults);
-        // } else {
-        //     console.log('error: ' + err);
-        //     return;
-        // }
-    // });
 }
+})
+}
+
