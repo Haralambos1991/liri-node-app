@@ -10,6 +10,16 @@
 
 * Read commands and queries from file
 
+# How to use
+
+Use node to run this program. Use node liri.js then run one of the following comands, then add search text:
+
+* spotify-this-song
+
+* movie-this
+
+* concert-this
+
 # Tools used
 
 * Javascript
