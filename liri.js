@@ -1,55 +1,56 @@
-require('dotenv').config();
+require("dotenv").config();
 //project vars
 
-var keys = require('./keys.js');
-var fs = require('fs');
-var Spotify = require('node-spotify-api');
+var keys = require("./keys.js");
+var fs = require("fs");
+var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
 var movieName = process.argv[3];
-var bandSearch = process.argv[3]
+var bandSearch = process.argv[3];
 var liriReturn = process.argv[2];
-var twitter = require('twitter');
+var twitter = require("twitter");
 var client = new twitter(keys.client);
-var axios = require('axios');
-
-console.log('argv', process.argv);
+var axios = require("axios");
+console.log("argv", process.argv);
 
 //switches for various commands
 switch (liriReturn) {
-    case 'spotify-this-song':
-        //getSpotify(userSearch);
-        spotifyThisSong(process.argv[3]);
-        break;
+	case "spotify-this-song":
+		//getSpotify(userSearch);
+		spotifyThisSong(process.argv[3]);
+		break;
 
-    case 'concert-this':
-        concertThis();
-        break;
+	case "concert-this":
+		concertThis(process.argv[3]);
+		break;
 
-    case 'movie-this':
-        //getOMDB(userSearch);
-        movieThis(process.argv[3]);
-        break;
-   
-    case 'do what it says':
-        getRandom();
-        break;
+	case "movie-this":
+		//getOMDB(userSearch);
+		movieThis(process.argv[3]);
+		break;
 
-    // instructions for first-time user lurking around on the command line//
-    default:
-        console.log(
-            '\n' +
-                "type any command after 'node liri.js': " +
-                '\n' +
-                "spotify-this-song 'any song title' " +
-                '\n' +
-                "concert-this 'any-concert' " +
-                '\n' +
-                "movie-this 'any-movie-title' " +
-                '\n' +
-                'do-what-it-says' +
-                '\n' +
-                'Use quotes for multiword titles!'
-        );
+		break;
+
+	case "do what it says":
+		getRandom();
+		break;
+
+	// instructions for first-time user lurking around on the command line//
+	default:
+		console.log(
+			"\n" +
+				"type any command after 'node liri.js': " +
+				"\n" +
+				"spotify-this-song 'any song title' " +
+				"\n" +
+				"concert-this 'any-concert' " +
+				"\n" +
+				"movie-this 'any-movie-title' " +
+				"\n" +
+				"do-what-it-says" +
+				"\n" +
+				"Use quotes for multiword titles!"
+		);
 }
 
 //Command 1 my-tweets
@@ -73,91 +74,85 @@ switch (liriReturn) {
 //command 1 spotify this song
 // i need artist, song name, preview, album
 function spotifyThisSong(trackName) {
-    //var trackName = process.argv[3];
-    if (!trackName) {
-        trackName = 'The sign';
-    }
-    //songRequest = trackName;
+	//var trackName = process.argv[3];
+	if (!trackName) {
+		trackName = "The sign";
+	}
+	//songRequest = trackName;
 
-    return spotify.search(
-        {
-            type: 'track',
-            query: trackName,
-        },
-        function(err, data) {
-            if (!err) {
-                var trackInfo = data.tracks.items;
-                for (var i = 0; i < 5; i++) {
-                    if (trackInfo[i] != undefined) {
-                        var spotifyResults =
-                            'Artists: ' +
-                            trackInfo[i].artists[0].name +
-                            '\n' +
-                            'Song: ' +
-                            trackInfo[i].name +
-                            '\n' +
-                            'Preview URL: ' +
-                            trackInfo[i].preview_url +
-                            '\n';
-                        'Album: ' + trackInfo[i].album.name + '\n';
+	return spotify.search(
+		{
+			type: "track",
+			query: trackName
+		},
+		function(err, data) {
+			if (!err) {
+				var trackInfo = data.tracks.items;
+				for (var i = 0; i < 5; i++) {
+					if (trackInfo[i] != undefined) {
+						var spotifyResults =
+							"Artists: " +
+							trackInfo[i].artists[0].name +
+							"\n" +
+							"Song: " +
+							trackInfo[i].name +
+							"\n" +
+							"Preview URL: " +
+							trackInfo[i].preview_url +
+							"\n";
+						"Album: " + trackInfo[i].album.name + "\n";
 
-                        console.log(spotifyResults);
-                        console.log('');
-                    }
-                }
-            } else {
-                console.log('error: ' + err);
-                return;
-            }
-        }
-    );
+						console.log(spotifyResults);
+						console.log("");
+					}
+				}
+			} else {
+				console.log("error: " + err);
+				return;
+			}
+		}
+	);
 }
 
 // command 2 concert this
 //choose a concert of your choice by typing on the command line node liri.js concert this
 
-function concertThis() {
-    console.log("concert-this")
-    var  queryUrl = "https://rest.bandsintown.com/artists/"+
-    bandSearch +
-    "/events?app_id=codecademy";
+function concertThis(bandName) {
+	console.log("concert-this");
+	var queryUrl = "https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=codecademy";
+	axios.get(queryUrl).then((response) => {
+		// console.log('response.data', response.data);
 
-axios.get(queryUrl).then(  (response)  => {
+		const bandNames = response.data.map(function(lineup) {
+			return band.lineup.join(", ");
+		});
+		console.log("bandNames", bandNames);
 
-const { Name , City, Date, Country  } = response.data
-console.log("Name", Name)
-console.log("City", City)
-console.log("Date", Date)
-console.log("Country", Country)
+		//console.log('Name', Name);
+		//console.log('City', City);
+		// console.log('Date', Date);
+		// console.log('Country', Country);
 
-
-
-
-//command 3 movie this
-// run a movie to the OMDB API with the movie specified
-function movieThis() {
-    console.log("movie-this")
-    // using movieName from var list at top
-    var queryUrl =
-        'http://www.omdbapi.com/?t=' +
-        movieName +
-        '&y=&plot=short&apikey=trilogy';
-//  console.log("queryUrl", queryUrl)
-axios.get(queryUrl).then( (response ) => {
-
-    const { Title, Rated, Year, Released, imdbRating, Country, Language, Plot, Actors  } = response.data
-    console.log("Title", Title)
-    console.log("Rated", Rated)
-    console.log("Year", Year)
-    console.log("Released", Released )
-    console.log("imdbRating", imdbRating)
-    console.log("Country", Country)
-    console.log("Language", Language)
-    console.log("Plot", Plot)
-    console.log("Actors", Actors)
-    // console.log(response))
-})
+		//command 3 movie this
+		// run a movie to the OMDB API with the movie specified
+	});
 }
-})
+function movieThis(movieName) {
+	console.log("movie-this");
+	// using movieName from var list at top
+	var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+	//  console.log("queryUrl", queryUrl)
+	axios.get(queryUrl).then((response) => {
+		const { Title, Rated, Year, Released, imdbRating, Country, Language, Plot, Actors } = response.data;
+		console.log("Title", Title);
+		console.log("Rated", Rated);
+		console.log("Year", Year);
+		console.log("Released", Released);
+		console.log("imdbRating", imdbRating);
+		console.log("Country", Country);
+		console.log("Language", Language);
+		console.log("Plot", Plot);
+		console.log("Actors", Actors);
+		// console.log(response))
+	});
 }
-
