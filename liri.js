@@ -123,7 +123,7 @@ function concertThis(bandName) {
 	axios.get(queryUrl).then((response) => {
 		// console.log('response.data', response.data);
 
-		const bandNames = response.data.map(function(lineup) {
+		const bandNames = response.data.map(function(band) {
 			return band.lineup.join(", ");
 		});
 		console.log("bandNames", bandNames);
